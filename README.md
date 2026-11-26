@@ -7,6 +7,9 @@ Two websites in one repo, both hosted on Hostinger.
 | `website-1/` | https://aerial-darkgreen-llama-59.hostingersite.com | _TBD (connect later)_ |
 | `website-2/` | https://active-darkgray-beaver-99.hostingersite.com | _TBD (connect later)_ |
 
+The files at the repo root (`index.html`, `thank-you.html`, `ajax/contact-enquiry.php`)
+are the temporary **civil lawyers landing page** (civil.abilawfirm.in).
+
 ## Setup (for collaborators)
 
 1. Clone the repo:

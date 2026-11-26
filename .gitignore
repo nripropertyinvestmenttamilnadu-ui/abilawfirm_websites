@@ -3,11 +3,6 @@
 .env.*
 !.env.example
 
-# Old landing page files kept locally at the root - not part of this repo
-/index.html
-/thank-you.html
-/ajax/
-
 # OS / editor
 .DS_Store
 Thumbs.db
