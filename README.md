@@ -4,8 +4,8 @@ Two websites in one repo, both hosted on Hostinger.
 
 | Folder | Hostinger temporary domain | Real domain |
 |---|---|---|
-| `website-1/` | _TBD_ | _TBD (connect later)_ |
-| `website-2/` | _TBD_ | _TBD (connect later)_ |
+| `website-1/` | https://aerial-darkgreen-llama-59.hostingersite.com | _TBD (connect later)_ |
+| `website-2/` | https://active-darkgray-beaver-99.hostingersite.com | _TBD (connect later)_ |
 
 ## Setup (for collaborators)
 
@@ -20,4 +20,14 @@ Two websites in one repo, both hosted on Hostinger.
 ## Deploy
 
 Each folder is uploaded to its own Hostinger site's `public_html` over SSH
-(details in `.env`). Deploy only the folder you changed.
+(details in `.env`). Deploy only the folder you changed:
+
+```
+powershell -ExecutionPolicy Bypass -File .\deploy.ps1 website-1
+powershell -ExecutionPolicy Bypass -File .\deploy.ps1 website-2
+```
+
+The script only uploads/overwrites files - it never deletes anything on Hostinger.
+If you don't have the deploy SSH key, it asks for the SSH password from `.env`.
+
+**Rule: never delete anything on Hostinger** - the account hosts other live sites.
