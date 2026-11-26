@@ -10,6 +10,11 @@ Two websites in one repo, both hosted on Hostinger.
 The files at the repo root (`index.html`, `thank-you.html`, `ajax/contact-enquiry.php`)
 are the temporary **civil lawyers landing page** (civil.abilawfirm.in).
 
+- **Campaign:** this page is the landing page for the Google Ads campaign **General – Chennai**.
+  All ads in that campaign point to https://civil.abilawfirm.in
+- Leads are sent to the CRM with source `Google Ads` and ad name `General`.
+- Live on Hostinger at `domains/abilawfirm.in/public_html/civil` (Google Tag Manager `GTM-TW32B6JJ` installed).
+
 ## Setup (for collaborators)
 
 1. Clone the repo:
