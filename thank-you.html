@@ -22,6 +22,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-ZB0QL8RT9E');
+  gtag('config', 'AW-16746237443');
   // Lead form conversion: create a "Submit lead form" conversion in Google Ads,
   // then uncomment and paste its send_to value here:
   // gtag('event', 'conversion', {'send_to': 'AW-16746237443/XXXXXXXXXXXX'});
@@ -69,5 +70,16 @@ footer{background:#000;color:#a3a3a3;font-size:13px;border-top:4px solid var(--g
   </div>
 </main>
 <footer>© 2026 ABI LAW FIRM. All rights reserved.</footer>
+<script>
+const CONV_CALL = "AW-16746237443/sfeVCP23gcAdEIOcnbE-";
+const CONV_WHATSAPP = "AW-16746237443/XH4kCIC4gcAdEIOcnbE-";
+// Google Ads conversions on call & WhatsApp clicks (link still opens normally)
+document.querySelectorAll('a[href^="tel:"]').forEach(a => a.addEventListener('click', () => {
+  if (typeof gtag === 'function') gtag('event', 'conversion', { send_to: CONV_CALL, transport_type: 'beacon' });
+}));
+document.querySelectorAll('a[href*="whatsapp.com"]').forEach(a => a.addEventListener('click', () => {
+  if (typeof gtag === 'function') gtag('event', 'conversion', { send_to: CONV_WHATSAPP, transport_type: 'beacon' });
+}));
+</script>
 </body>
 </html>
