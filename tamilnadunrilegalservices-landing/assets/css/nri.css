@@ -1,0 +1,28 @@
+/* Tamil Nadu NRI Legal Services: additions on top of the shared ABI design (site.css) */
+.logo-chip{display:inline-flex;align-items:center;background:#fff;border-radius:6px;padding:6px 12px}
+.nav .logo-chip img{height:44px;width:auto}
+.foot-chip{margin-bottom:18px}
+.foot-chip img{height:44px;width:auto}
+.foot-nri{grid-template-columns:1.4fr 1fr 1fr}
+.topbar svg{width:15px;height:15px;vertical-align:-2px;margin-right:6px;color:var(--gold)}
+
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.pain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:46px}
+.pain{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px 22px}
+.pain svg{width:34px;height:34px;color:var(--gold);margin-bottom:14px}
+.pain h3{font-size:19px;margin-bottom:8px}
+.pain p{color:var(--muted);font-size:15px}
+
+.svc-cards .pa p{margin-bottom:16px}
+.process .steps{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+
+@media (max-width:1024px){
+  .pain-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-nri{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .pain-grid,.foot-nri{grid-template-columns:1fr}
+  .field-row{grid-template-columns:1fr;gap:0}
+  .nav .logo-chip img{height:36px}
+}

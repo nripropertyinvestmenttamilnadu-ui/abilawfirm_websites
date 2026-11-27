@@ -10,6 +10,11 @@ Two websites in one repo, both hosted on Hostinger.
 The files at the repo root (`index.html`, `thank-you.html`, `ajax/contact-enquiry.php`)
 are the temporary **civil lawyers landing page** (civil.abilawfirm.in).
 
+`tamilnadunrilegalservices-landing/` is the **Tamil Nadu NRI Legal Services landing page**
+(https://landing.tamilnadunrilegalservices.com). Live on Hostinger at
+`domains/tamilnadunrilegalservices.com/public_html/landing`. Settings (phone, Google Ads
+conversion codes, etc.) are in `inc/config.php`.
+
 ## Setup (for collaborators)
 
 1. Clone the repo:
