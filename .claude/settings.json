@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "d=\"${CLAUDE_PROJECT_DIR:-.}\"; [ -d \"$d/abilawfirm_websites/.git\" ] && d=\"$d/abilawfirm_websites\"; cd \"$d\" 2>/dev/null && [ -d .git ] || exit 0; out=$(GIT_TERMINAL_PROMPT=0 git pull --ff-only 2>&1 | tail -1 | tr -d \"\\\"\\\\\"); printf \"{\\\"systemMessage\\\":\\\"GitHub sync: %s\\\"}\n\" \"$out\"",
+            "timeout": 30,
+            "statusMessage": "Syncing with GitHub..."
+          }
+        ]
+      }
+    ]
+  }
+}

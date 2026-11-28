@@ -9,6 +9,8 @@ Three sites live in this repo. All are hosted on one Hostinger account that also
 | `website-1/` | https://aerial-darkgreen-llama-59.hostingersite.com (staging for the new abilawfirm.in) | Not launched |
 
 ## Golden rules
+**Auto-sync:** `.claude/settings.json` pulls the latest from GitHub automatically when a Claude session starts (fast-forward only: it never overwrites local work). Still commit and push when you finish.
+
 1. **GitHub is the single source of truth.** Pull before you start; commit and push when you finish. Never edit files directly on the server: changes made only on Hostinger get overwritten by the next deploy.
 2. **Before deploying a live site, compare it with the server** (the live copy may have changes not yet in GitHub). Deploy only the folder you changed.
 3. **Never delete anything on Hostinger.** The deploy scripts only upload/overwrite.
