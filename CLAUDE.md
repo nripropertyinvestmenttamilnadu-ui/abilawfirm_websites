@@ -6,6 +6,7 @@ Three sites live in this repo. All are hosted on one Hostinger account that also
 |---|---|---|
 | repo root (`index.html`, `thank-you.html`, `ajax/`) | civil.abilawfirm.in | Live, Google Ads |
 | `tamilnadunrilegalservices-landing/` | https://landing.tamilnadunrilegalservices.com | **Live, Google Ads** |
+| `tamilnadunrilegalservices-landing1/` | https://landing1.tamilnadunrilegalservices.com | Copy of the NRI page with optional free-text Country/Service. Leads: `~/nri-landing1-leads/` |
 | `website-1/` | https://aerial-darkgreen-llama-59.hostingersite.com (staging for the new abilawfirm.in) | Not launched |
 
 ## Golden rules

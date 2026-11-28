@@ -15,6 +15,12 @@ Two websites in one repo, both hosted on Hostinger.
 conversion codes, etc.) are in `inc/config.php`.
 **This page is LIVE and used by Google Ads.** Test changes carefully before deploying.
 
+`tamilnadunrilegalservices-landing1/` is a **copy** of that page for
+https://landing1.tamilnadunrilegalservices.com, with optional free-text Country and Service
+fields. Server folder: `domains/tamilnadunrilegalservices.com/public_html/landing1`.
+Deploy with `./deploy.sh tamilnadunrilegalservices-landing1`. Its canonical URL points to the
+original page so search engines don't treat it as duplicate content.
+
 The files at the repo root (`index.html`, `thank-you.html`, `ajax/contact-enquiry.php`)
 are the temporary **civil lawyers landing page** (civil.abilawfirm.in).
 

@@ -16,7 +16,11 @@ case "$SITE" in
   tamilnadunrilegalservices-landing)
              DOMAIN="landing.tamilnadunrilegalservices.com"
              REMOTE_DIR="domains/tamilnadunrilegalservices.com/public_html/landing" ;;
-  *) echo "Usage: ./deploy.sh website-1|tamilnadunrilegalservices-landing"; exit 1 ;;
+  # Copy of the NRI landing page with optional free-text Country/Service fields
+  tamilnadunrilegalservices-landing1)
+             DOMAIN="landing1.tamilnadunrilegalservices.com"
+             REMOTE_DIR="domains/tamilnadunrilegalservices.com/public_html/landing1" ;;
+  *) echo "Usage: ./deploy.sh website-1|tamilnadunrilegalservices-landing|tamilnadunrilegalservices-landing1"; exit 1 ;;
 esac
 
 ROOT="$(cd "$(dirname "$0")" && pwd)"

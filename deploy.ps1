@@ -3,7 +3,7 @@
 #         powershell -ExecutionPolicy Bypass -File .\deploy.ps1 tamilnadunrilegalservices-landing
 # Uploads/overwrites files only. It NEVER deletes anything on Hostinger.
 
-param([Parameter(Mandatory = $true)][ValidateSet('website-1', 'tamilnadunrilegalservices-landing')][string]$Site)
+param([Parameter(Mandatory = $true)][ValidateSet('website-1', 'tamilnadunrilegalservices-landing', 'tamilnadunrilegalservices-landing1')][string]$Site)
 
 $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
@@ -17,12 +17,14 @@ Get-Content (Join-Path $root '.env') | ForEach-Object {
 $domains = @{
     'website-1' = 'aerial-darkgreen-llama-59.hostingersite.com'
     'tamilnadunrilegalservices-landing' = 'landing.tamilnadunrilegalservices.com'
+    'tamilnadunrilegalservices-landing1' = 'landing1.tamilnadunrilegalservices.com'
 }
 $domain = $domains[$Site]
 $remoteDir = "domains/$domain/public_html"
 # NRI landing page lives in the subdomain folder of the tamilnadunrilegalservices.com site
 # (main domain + www stay on Wix; only the "landing" A record points to Hostinger)
 if ($Site -eq 'tamilnadunrilegalservices-landing') { $remoteDir = 'domains/tamilnadunrilegalservices.com/public_html/landing' }
+if ($Site -eq 'tamilnadunrilegalservices-landing1') { $remoteDir = 'domains/tamilnadunrilegalservices.com/public_html/landing1' }
 $target = "$($envVars['SSH_USERNAME'])@$($envVars['SSH_HOST'])"
 $port = $envVars['SSH_PORT']
 
