@@ -59,7 +59,8 @@ $ip   = $_SERVER['REMOTE_ADDR'] ?? '';
 $env  = IS_LIVE ? 'live' : 'TEST';
 
 // 1) Save to CSV outside public_html (~/website-leads/leads.csv)
-$home = getenv('HOME') ?: dirname(__DIR__, 4);
+// Home folder = everything before "/domains/" in this file's path (works at any folder depth)
+$home = getenv('HOME') ?: preg_replace('#/domains/.*$#', '', __DIR__);
 $dir  = rtrim($home, '/') . '/' . LEAD_DIR;
 if (!is_dir($dir)) { @mkdir($dir, 0750, true); }
 $fh = @fopen($dir . '/leads.csv', 'a');

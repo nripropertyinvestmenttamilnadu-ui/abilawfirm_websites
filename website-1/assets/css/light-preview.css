@@ -1,0 +1,41 @@
+/* PREVIEW ONLY: loaded when the page URL has ?light=1. Alternates warm off-white sections with the black ones. */
+:root{--cream:#F7F5EF;--cream-line:#E7E1D1;--dark-gold:#8A6D00;--ink-dark:#161616}
+
+/* Home: benefits, how it works, founder, reviews, insights. Practice pages: main content. Articles: body. */
+#benefits,#process,#about,#reviews,#insights,.svc:not(.alt),.article-wrap{background:var(--cream);color:var(--ink-dark)}
+.article-wrap{box-shadow:0 0 0 100vmax var(--cream);clip-path:inset(0 -100vmax)}
+
+:is(#benefits,#process,#about,#reviews,#insights,.svc:not(.alt),.article-wrap) .eyebrow{color:var(--dark-gold)}
+:is(#benefits,#process,#about,#reviews,#insights,.svc:not(.alt)) .sec-sub,
+:is(#about) p{color:#4a4a4a}
+#about .founder-quote{color:#222}
+#about .ticks li{color:var(--ink-dark)}
+
+/* cards become white on cream */
+:is(#benefits,#process,#reviews,#insights,.svc:not(.alt),.article-wrap) :is(.benefit,.steps li,.t-card,.post,.svc-block,.g-rating,.side-box,.note-box){
+  background:#fff;border-color:var(--cream-line);box-shadow:0 8px 24px rgba(0,0,0,.05)}
+:is(#benefits,#process,#reviews,#insights,.svc:not(.alt)) :is(h3,.steps li b,.rating,figcaption b){color:var(--ink-dark)}
+:is(#benefits,#process,#reviews,#insights,.svc:not(.alt)) :is(.benefit p,.steps li,.post p,.svc-block p,.g-rating small){color:#555}
+#reviews blockquote{color:#333}
+#reviews figcaption span,#insights .post .cat,#insights .post .more,.svc:not(.alt) a.gold,.steps li:before{color:var(--dark-gold)}
+#reviews .t-note{color:#777}
+#benefits .benefit .ic{background:rgba(245,213,71,.28)}
+#benefits .benefit .ic svg{color:var(--dark-gold)}
+#benefits .benefit-cta{background:linear-gradient(90deg,rgba(245,213,71,.38),rgba(245,213,71,.1));border-color:rgba(200,160,0,.45)}
+.svc:not(.alt) .svc-block .ticks li{color:#333}
+.svc:not(.alt) .svc-block .ticks li b{color:var(--ink-dark)}
+.svc:not(.alt) .svc-block h3{color:var(--ink-dark)}
+
+/* outline buttons on light backgrounds */
+:is(#benefits,#process,#about,#reviews,#insights,.svc:not(.alt),.article-wrap) .btn-outline{border-color:var(--ink-dark);color:var(--ink-dark)}
+:is(#benefits,#process,#about,#reviews,#insights,.svc:not(.alt),.article-wrap) .btn-outline:hover{background:var(--ink-dark);color:#fff}
+
+/* article text */
+.article-wrap .prose{color:#2a2a2a}
+.article-wrap .prose :is(h2,h3,strong){color:#111}
+.article-wrap .prose a,.article-wrap .note-box a{color:var(--dark-gold)}
+.article-wrap .note-box{color:#555}
+.article-wrap .side-box h4{color:var(--ink-dark)}
+.article-wrap .side-box a{color:#333}
+.article-wrap .side-box a.gold{color:var(--dark-gold)}
+.svc:not(.alt) .svc-block .steps li{background:var(--cream);border:1px solid var(--cream-line);box-shadow:none}

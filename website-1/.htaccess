@@ -1,0 +1,102 @@
+DirectoryIndex index.php index.html
+Options -Indexes
+ErrorDocument 404 /404.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# --- Force HTTPS ---
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# --- LAUNCH: uncomment once abilawfirm.in points here (abilawfirm.in -> www.abilawfirm.in) ---
+# RewriteCond %{HTTP_HOST} ^abilawfirm\.in$ [NC]
+# RewriteRule ^ https://www.abilawfirm.in%{REQUEST_URI} [L,R=301]
+
+# --- Block direct access to includes ---
+RewriteRule ^inc/ - [F,L]
+RewriteRule \.(md|sh|ps1|log|csv)$ - [F,L]
+
+# --- robots.txt and sitemap.xml are generated (staging blocks crawlers automatically) ---
+RewriteRule ^robots\.txt$ robots.php [L]
+RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+# --- 301 redirects from the old Wix website URLs ---
+RewriteRule ^about-1/?$ /about [R=301,L]
+RewriteRule ^about-1-1/?$ /insights/fraudulent-property-deed-legal-remedies [R=301,L]
+RewriteRule ^(blog|blog-feed\.xml)/?$ /insights/ [R=301,L]
+RewriteRule ^blog/.*$ /insights/ [R=301,L]
+RewriteRule ^book-online/?$ /contact [R=301,L]
+RewriteRule ^commerical/?$ /practice-areas/corporate-commercial [R=301,L]
+RewriteRule ^copy-of-arbitration-and-mediation-ser/?$ /practice-areas/consumer-cases [R=301,L]
+RewriteRule ^copy-of-company-formation-and-registr/?$ /practice-areas/corporate-commercial [R=301,L]
+RewriteRule ^copy-of-complaince-withindian-corprat/?$ /practice-areas/corporate-commercial [R=301,L]
+RewriteRule ^copy-of-compliance-with-gst-and-other/?$ /practice-areas/tax-gst [R=301,L]
+RewriteRule ^copy-of-consumer-protection-and-disputes/?$ /practice-areas/arbitration-mediation [R=301,L]
+RewriteRule ^copy-of-drafting-and-execution-of-wills/?$ /practice-areas/wills-estate-planning [R=301,L]
+RewriteRule ^copy-of-drafting-and-reviewing-contra/?$ /practice-areas/corporate-commercial [R=301,L]
+RewriteRule ^copy-of-estate-planning-and-management/?$ /practice-areas/wills-estate-planning [R=301,L]
+RewriteRule ^copy-of-guidence-on-compliance-with-i/?$ /practice-areas/tax-gst [R=301,L]
+RewriteRule ^copy-of-handling-financial-disputes/?$ /practice-areas/tax-gst [R=301,L]
+RewriteRule ^copy-of-landlord-tenant-disputes/?$ /practice-areas/money-recovery-banking [R=301,L]
+RewriteRule ^copy-of-nri-marriage-registration/?$ /practice-areas/wills-estate-planning [R=301,L]
+RewriteRule ^copy-of-representation-civil-and-crim/?$ /practice-areas/arbitration-mediation [R=301,L]
+RewriteRule ^copy-of-representation-in-tax-disputes/?$ /practice-areas/corporate-commercial [R=301,L]
+RewriteRule ^copy-of-resolution-of-commercial-disp/?$ /practice-areas/landlord-tenant [R=301,L]
+RewriteRule ^copy-of-trust-formation-andadministra/?$ /practice-areas/civil-litigation [R=301,L]
+RewriteRule ^divorce-lawyers-chennai/?$ /practice-areas/divorce-family-law [R=301,L]
+RewriteRule ^general-clean/?$ /practice-areas/ [R=301,L]
+RewriteRule ^general-clean-1/?$ /practice-areas/succession-partition [R=301,L]
+RewriteRule ^general-clean-2/?$ /insights/dowry-daughter-rights-partition-suits [R=301,L]
+RewriteRule ^general-clean-3/?$ /insights/grandsons-property-rights-grandfather [R=301,L]
+RewriteRule ^general-clean-4/?$ /insights/effect-of-price-hike-in-sale-agreement [R=301,L]
+RewriteRule ^general-clean-5/?$ /practice-areas/succession-partition [R=301,L]
+RewriteRule ^land-property-development-issues-tamil-nadu-nri/?$ /practice-areas/nri-legal-services [R=301,L]
+RewriteRule ^landlord-tenant-dispute-resolution-tamil-nadu-nri/?$ /practice-areas/landlord-tenant [R=301,L]
+RewriteRule ^obtaining-property-documents-tamil-nadu-nri/?$ /practice-areas/nri-legal-services [R=301,L]
+RewriteRule ^property-dispute-resolution-tamil-nadu-nri/?$ /practice-areas/property-disputes [R=301,L]
+RewriteRule ^property-document-verification-chennai/?$ /practice-areas/title-verification [R=301,L]
+RewriteRule ^property-purchase-sale-assistance-tamil-nadu-nri/?$ /practice-areas/property-registration [R=301,L]
+RewriteRule ^post/navigating-the-legal-maze-your-guide-to-family-property-rights-as-an-nri/?$ /insights/nri-family-property-rights-guide [R=301,L]
+RewriteRule ^(dowry-daughter-rights-partition-suits|effect-of-price-hike-in-sale-agreement|forcing-husband-separate-parents-divorce|fraudulent-property-deed-legal-remedies|grandsons-property-rights-grandfather|hindu-daughter-inheritance-rights-after-conversion|mother-in-law-maintenance-daughter-in-law|permanent-alimony-maintenance-section-25-hma-void-marriage)/?$ /insights/$1 [R=301,L]
+# landing-page style legal URLs
+RewriteRule ^terms/?$ /terms-and-conditions [R=301,L]
+
+# --- Clean URLs: /about -> about.php (and redirect *.php to the clean URL) ---
+RewriteCond %{THE_REQUEST} \s/+((?!ajax/|robots\.php|sitemap\.php|404\.php)[^?\s]+?)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+RewriteRule ^(.+)/index$ /$1/ [R=301,L]
+RewriteRule ^index$ / [R=301,L]
+
+# strip a trailing slash on non-directories (/about/ -> /about)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^(.+)$ $1.php [L]
+</IfModule>
+
+# --- Security headers ---
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# --- Compression & browser caching ---
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml application/xml
+</IfModule>
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType text/css "access plus 1 year"
+ExpiresByType application/javascript "access plus 1 year"
+ExpiresByType image/avif "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
